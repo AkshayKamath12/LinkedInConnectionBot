@@ -2,7 +2,7 @@ const reader = new FileReader();
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   if (message.action === "startConnecting") {
-    const file = document.getElementById('csv').files[0];
+    const file = document.getElementById('csv').target.files[0];
     reader.readAsText(file);
   }
 });
