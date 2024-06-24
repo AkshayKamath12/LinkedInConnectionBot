@@ -1,16 +1,25 @@
-const reader = new FileReader();
-
-reader.onload = function(event){
-    const csvData = event.target.result;
-    csvToArray(csvData);
-}
+const reader = newFileReader();
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   if (message.action === "startConnecting") {
-    scrapeLinkedIn()
+    const file = document.getElementById('csv');
+    reader.readAsText(file);
+  }
+});
+
+reader.onload = function(event){
+    const csvData = event.target.result;
+    arr = csvToArr(csvData);
+    startConnecting(arr)
       .then((data) => {})
       .catch((err) => {
         console.error(err);
       });
-  }
-});
+};
+
+function csvToArr(csvData){
+    return csvData
+    .trim()
+    .split("\n")
+    .map((item) => item.split(','));
+}

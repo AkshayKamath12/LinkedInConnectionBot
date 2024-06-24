@@ -1,5 +1,4 @@
-document.getElementById("startButton").addEventListener("click", () => {
-  document.getElementById("startButton").disabled = true;
+document.getElementById("csv").addEventListener("change", (event) => {
   document.getElementById("progressBar").style.display = "block";
   document.getElementById("progressBar").value = 0;
   

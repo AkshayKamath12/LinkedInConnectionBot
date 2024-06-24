@@ -9,7 +9,9 @@ function sendProgressPercentage(progressPercentage) {
 
 
 async function startConnecting(connectionsArray) {
-  
+  for(i = 0; i < connectionsArray.length; i++){
+    console.log(connectionsArray[i];
+  }
 
 }
 
