@@ -1,6 +1,5 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 20px;
   width: 400px;
 }
 
@@ -28,11 +27,9 @@ button {
 
 .button-container {
   text-align: center;
-  margin-top: 20px;
   background: lightblue;
   width:60%
 }
-
 
 button:disabled {
   background-color: #ccc;
