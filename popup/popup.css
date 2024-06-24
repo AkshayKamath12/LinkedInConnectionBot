@@ -9,17 +9,10 @@ h1 {
   color: #0077b5; /* LinkedIn color */
 }
 
-
-.status-message {
-  margin-bottom: 12px;
-  font-size: 16px;
-  color: #888;
-}
-
 .button-container {
   text-align: center;
   background: lightblue;
-  width:200px
+  width:100%
 }
 
 button:disabled {
