@@ -1,4 +1,4 @@
-const reader = newFileReader();
+const reader = new FileReader();
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   if (message.action === "startConnecting") {
