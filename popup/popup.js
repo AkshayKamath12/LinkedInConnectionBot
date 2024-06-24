@@ -19,7 +19,7 @@ document.getElementById("csv").addEventListener("change", (event) => {
 function csvToArr(csvData){
     return csvData
     .trim()
-    .split("\n")
+    .split("\r\n")
     .map((item) => item.split(','));
 }
 
