@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "LinkedIn Connection Bot",
   "version": "1.0",
-  "description": "Scrape connections from LinkedIn profile",
+  "description": "Connects to people in csv file",
   "permissions": ["tabs", "storage"],
   "background": {
     "service_worker": "background/background.js",
