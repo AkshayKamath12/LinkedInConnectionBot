@@ -30,6 +30,7 @@ async function startConnecting(connectionsArray) {
         connection = connectionsArray[i];
         console.log(connection);
         openWindow = window.open(connection[0], 'test' + i);
+        await sleep(5000);
         openWindow.onload = function(){
             let btn = document.querySelector(".artdeco-button--primary");
             if(btn !== null){
