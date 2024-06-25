@@ -23,7 +23,7 @@ async function startConnecting(connectionsArray) {
             continue;
         }
         await new Promise((resolve) => setTimeout(resolve, 500));
-        connect(connection[0]);
+        connect(connection[i]);
         await new Promise((resolve) => setTimeout(resolve, 500));
         sendProgressPercentage(Math.round((i / total) * 100));
     }
