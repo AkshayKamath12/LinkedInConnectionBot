@@ -15,11 +15,7 @@ async function check(url){
 }
 
 async function access(url){
-    let valid = await check(url);
-
-    if(valid === true){
-        window.location.replace(url);
-    }
+    
         
     console.log(valid);
 }
@@ -29,8 +25,7 @@ async function startConnecting(connectionsArray) {
     total = connectionsArray.length
     console.log(total);
     for(i = 0; i < total; i++){
-        await access(connectionsArray[i][0]);
-        /*
+        
         connection = connectionsArray[i];
         console.log(connection);
         if(connection.length === 0){
@@ -38,10 +33,11 @@ async function startConnecting(connectionsArray) {
             continue;
         }
         let url = connection[0];
-        await access(url);
+        window.open(url, 'test'+i);
+        //await access(url);
         await sleep(5000);
         await sendProgressPercentage(Math.round((i+1) / total) * 100);
-        */
+        
     }
 }
 
