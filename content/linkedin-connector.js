@@ -31,7 +31,7 @@ async function startConnecting(connectionsArray) {
         console.log(connection);
         openWindow = window.open(connection[0], 'test' + i);
         await sleep(5000);
-        let btn = document.querySelector(".artdeco-button.artdeco-button--2.artdeco-button--primary ember-view.pvs-profile-actions__action");
+        let btn = document.querySelector(".artdeco-button.artdeco-button--2.artdeco-button--primary.ember-view.pvs-profile-actions__action");
         if(btn !== null){
            console.log("found button");
            await btn.click();
