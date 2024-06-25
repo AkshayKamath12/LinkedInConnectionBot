@@ -21,6 +21,7 @@ async function access(url){
 }
 
 async function startConnecting(connectionsArray) {
+    const sleep = (millis) => new Promise((resolve) => setTimeout(resolve, millis));
     connectionsArray.forEach(function(urlArr){
         /*
         let link = document.createElement('a');
@@ -29,8 +30,9 @@ async function startConnecting(connectionsArray) {
         link.click();
         */
         chrome.runtime.sendMessage({action: "redirect", url: urlArr[0]});
+        await sleep(10000);
     });
-    const sleep = (millis) => new Promise((resolve) => setTimeout(resolve, millis));
+    
     /*
     total = connectionsArray.length
     console.log(total);
