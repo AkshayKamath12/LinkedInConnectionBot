@@ -4,10 +4,13 @@ function sendProgressPercentage(progressPercentage) {
     message: progressPercentage,
   });
 }
-function connect(url){
-    
-    window.location.href = url;
-    
+function check(url){
+    try {
+        new URL(string);
+        return true;
+    }catch (err) {
+        return false;
+    }   
 }
 
 async function startConnecting(connectionsArray) {
@@ -21,12 +24,14 @@ async function startConnecting(connectionsArray) {
             continue;
         }
         url = connection[0];
+        let valid = await check(url);
         var elem = document.createElement('a');
         elem.href = url;
         elem.setAttribute("type", "hidden");
         await new Promise((resolve) => setTimeout(resolve, 750));
-        await elem.click();
-        
+        if(valid === true){
+            await elem.click();
+        }
         sendProgressPercentage(Math.round((i+1) / total) * 100);
     }
 }
