@@ -38,10 +38,11 @@ async function startConnecting(connectionsArray) {
 
 
 function isValidUrl(url){
-    try { 
-      	return Boolean(new URL(urlString)); 
-      }
-      catch(e){ 
-      	return false; 
-      }
+    let url;
+    try {
+      url = new URL(string);
+    }catch (_) {
+      return false;  
+    }  
+    return true;
 }
