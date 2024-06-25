@@ -32,4 +32,5 @@ async function startConnecting(connectionsArray) {
     }
 }
 
+function isValidUrl
 
