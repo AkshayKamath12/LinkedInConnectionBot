@@ -21,25 +21,17 @@ async function access(url){
 }
 
 async function startConnecting(connectionsArray) {
-    const sleep = (millis) => new Promise((resolve) => setTimeout(resolve, millis));
-    connectionsArray.forEach(function(urlArr){
-        /*
-        let link = document.createElement('a');
-        link.href = urlArr[0];
-        link.target = '_blank';
-        link.click();
-        */
-        chrome.runtime.sendMessage({action: "redirect", url: urlArr[0]});
-        await sleep(10000);
-    });
+    const sleep = (millis) => new Promise((resolve) => setTimeout(resolve, millis));    
     
-    /*
     total = connectionsArray.length
     console.log(total);
     for(i = 0; i < total; i++){
         
         connection = connectionsArray[i];
         console.log(connection);
+        chrome.runtime.sendMessage({action: "redirect", url: connection[0]});
+        await sleep(5000);
+        /*
         if(connection.length === 0){
             console.log("error: empty row in csv");
             continue;
@@ -49,9 +41,10 @@ async function startConnecting(connectionsArray) {
         //await access(url);
         await sleep(5000);
         await sendProgressPercentage(Math.round((i+1) / total) * 100);
+        */
         
     }
-    */
+    
 }
 
 
