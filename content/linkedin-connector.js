@@ -31,7 +31,7 @@ async function startConnecting(connectionsArray) {
         console.log(connection);
         openWindow = window.open(connection[0], 'test' + i);
         await sleep(5000);
-        let btn = document.querySelector('[aria-label="Invite Rodney Hayes to connect"');
+        let btn = openWindow.document.querySelector('[aria-label="Invite Rodney Hayes to connect"');
         if(btn !== null){
            console.log("found button");
            await btn.click();
