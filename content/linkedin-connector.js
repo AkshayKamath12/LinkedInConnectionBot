@@ -31,13 +31,13 @@ async function startConnecting(connectionsArray) {
         console.log(connection);
         openWindow = window.open(connection[0], 'test' + i);
         await sleep(5000);
-        let btn = document.querySelector(".artdeco-button--primary");
+        let btn = document.querySelector(".artdeco-button artdeco-button--2 artdeco-button--primary ember-view pvs-profile-actions__action");
         if(btn !== null){
            console.log("found button");
            await btn.click();
            await sleep(5000);
-           let connectWithPerson = document.querySelector('[aria-label="Send without a note"');
-           await connectWithPerson.click()
+           //let connectWithPerson = document.querySelector('[aria-label="Send without a note"');
+           //await connectWithPerson.click()
         }else{
            console.log("error");
         }
