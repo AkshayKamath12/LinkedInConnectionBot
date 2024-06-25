@@ -27,10 +27,19 @@ async function startConnecting(connectionsArray) {
         var elem = document.createElement('a');
         elem.href = url;
         elem.setAttribute("type", "hidden");
-        await elem.click();
+        validUrl = isValidUrl(url)
+        if (validUrl){
+            await elem.click();
+        }
         sendProgressPercentage(Math.round((i+1) / total) * 100);
-    }
 }
 
-function isValidUrl
+function isValidUrl(url){
+    try { 
+      	return Boolean(new URL(urlString)); 
+      }
+      catch(e){ 
+      	return false; 
+      }
+}
 
