@@ -6,7 +6,7 @@ function sendProgressPercentage(progressPercentage) {
 }
 async function check(url){
     try {
-        new URL(string);
+        const url = new URL(string);
         return true;
     }catch (err) {
         return false;
