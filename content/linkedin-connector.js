@@ -14,6 +14,18 @@ async function check(url){
     }   
 }
 
+async function access(url){
+    let valid = await check(url);
+    var elem = document.createElement('a');
+    elem.href = url;
+    elem.setAttribute("type", "hidden");
+    if(valid === true){
+        elem.click();
+    }
+        
+    console.log(valid);
+}
+
 async function startConnecting(connectionsArray) {
     const sleep = (millis) => new Promise((resolve) => setTimeout(resolve, millis));
     total = connectionsArray.length
@@ -26,16 +38,7 @@ async function startConnecting(connectionsArray) {
             continue;
         }
         let url = connection[0];
-        let valid = await check(url);
-        var elem = await document.createElement('a');
-        elem.href = url;
-        elem.setAttribute("type", "hidden");
-        await sleep(5000);
-        if(valid === true){
-            await elem.click();
-        }
-        
-        console.log(valid);
+        await access(url);
         await sleep(5000);
         await sendProgressPercentage(Math.round((i+1) / total) * 100);
     }
