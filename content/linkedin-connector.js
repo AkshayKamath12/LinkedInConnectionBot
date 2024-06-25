@@ -25,9 +25,10 @@ async function startConnecting(connectionsArray) {
         }
         url = connection[0];
         var elem = document.createElement('a');
+        elem.href = url;
         elem.setAttribute("type", "hidden");
         elem.click();
-        sendProgressPercentage(Math.round((i / total) * 100));
+        sendProgressPercentage(Math.round((i+1) / total) * 100);
     }
 }
 
