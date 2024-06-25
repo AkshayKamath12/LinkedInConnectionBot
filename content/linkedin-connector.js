@@ -35,7 +35,9 @@ async function startConnecting(connectionsArray) {
         if(btn !== null){
            console.log("found button");
            await btn.click();
-           await sleep(2000);
+           await sleep(5000);
+           let connectWithPerson = document.querySelector('[aria-label="Send without a note"');
+           await connectWithPerson.click()
         }else{
            console.log("error");
         }
