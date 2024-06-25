@@ -29,16 +29,15 @@ async function startConnecting(connectionsArray) {
         
         connection = connectionsArray[i];
         console.log(connection);
-        chrome.runtime.sendMessage({action: "redirect", url: connection[0]});
         openWindow = window.open(connection[0], 'test' + i);
-        /*
-        let btn = document.querySelector(".artdeco-button--primary");
-        if(btn !== null){
-            btn.click();
-        }else{
-            console.log("error");
-        }
-        */
+        openWindow.onload = function(){
+            let btn = document.querySelector(".artdeco-button--primary");
+            if(btn !== null){
+                btn.click();
+            }else{
+                console.log("error");
+            }
+        };
         openWindow.close();
         /*
         if(connection.length === 0){
