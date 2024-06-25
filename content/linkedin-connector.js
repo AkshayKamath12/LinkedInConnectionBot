@@ -10,10 +10,6 @@ function connect(url){
     
 }
 
-function connect(url){
-    window.location.href = url;   
-}
-
 async function startConnecting(connectionsArray) {
     total = connectionsArray.length
     console.log(total);
@@ -29,20 +25,10 @@ async function startConnecting(connectionsArray) {
         elem.href = url;
         elem.setAttribute("type", "hidden");
         await new Promise((resolve) => setTimeout(resolve, 750));
-        if(isValidUrl(url)){
-            await elem.click();
-        }
+        await elem.click();
+        
         sendProgressPercentage(Math.round((i+1) / total) * 100);
     }
 }
 
 
-function isValidUrl(url){
-    let url;
-    try {
-      url = new URL(string);
-    }catch (_) {
-      return false;  
-    }  
-    return true;
-}
