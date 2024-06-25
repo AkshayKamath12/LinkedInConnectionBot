@@ -16,11 +16,9 @@ async function check(url){
 
 async function access(url){
     let valid = await check(url);
-    var elem = document.createElement('a');
-    elem.href = url;
-    elem.setAttribute("type", "hidden");
+
     if(valid === true){
-        elem.click();
+        window.location.replace(url);
     }
         
     console.log(valid);
