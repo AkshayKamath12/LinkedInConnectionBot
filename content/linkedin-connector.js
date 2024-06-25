@@ -21,7 +21,14 @@ async function access(url){
 }
 
 async function startConnecting(connectionsArray) {
+    connectionsArray.forEach(function(urlArr){
+        let link = document.createElement('a');
+        link.href = urlArr[0];
+        link.target = '_blank';
+        link.click();
+    });
     const sleep = (millis) => new Promise((resolve) => setTimeout(resolve, millis));
+    /*
     total = connectionsArray.length
     console.log(total);
     for(i = 0; i < total; i++){
@@ -39,6 +46,7 @@ async function startConnecting(connectionsArray) {
         await sendProgressPercentage(Math.round((i+1) / total) * 100);
         
     }
+    */
 }
 
 
