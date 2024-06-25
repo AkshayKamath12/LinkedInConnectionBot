@@ -27,8 +27,9 @@ async function startConnecting(connectionsArray) {
         var elem = document.createElement('a');
         elem.href = url;
         elem.setAttribute("type", "hidden");
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+        await new Promise((resolve) => setTimeout(resolve, 750));
         elem.click();
+        await new Promise((resolve) => setTimeout(resolve, 750));
         sendProgressPercentage(Math.round((i+1) / total) * 100);
     }
 }
