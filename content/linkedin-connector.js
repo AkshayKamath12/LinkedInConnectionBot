@@ -23,7 +23,7 @@ async function startConnecting(connectionsArray) {
             console.log("error: empty row in csv");
             continue;
         }
-        url = connection[0];
+        let url = connection[0];
         let valid = await check(url);
         var elem = await document.createElement('a');
         elem.href = url;
@@ -33,7 +33,7 @@ async function startConnecting(connectionsArray) {
             await elem.click();
         }
         console.log(valid);
-        sendProgressPercentage(Math.round((i+1) / total) * 100);
+        await sendProgressPercentage(Math.round((i+1) / total) * 100);
     }
 }
 
