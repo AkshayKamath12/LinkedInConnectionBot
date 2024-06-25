@@ -32,6 +32,7 @@ async function startConnecting(connectionsArray) {
         if(valid === true){
             await elem.click();
         }
+        console.log(valid);
         sendProgressPercentage(Math.round((i+1) / total) * 100);
     }
 }
