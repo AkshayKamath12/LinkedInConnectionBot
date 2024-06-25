@@ -4,7 +4,7 @@ function sendProgressPercentage(progressPercentage) {
     message: progressPercentage,
   });
 }
-function check(url){
+async function check(url){
     try {
         new URL(string);
         return true;
@@ -25,7 +25,7 @@ async function startConnecting(connectionsArray) {
         }
         url = connection[0];
         let valid = await check(url);
-        var elem = document.createElement('a');
+        var elem = await document.createElement('a');
         elem.href = url;
         elem.setAttribute("type", "hidden");
         await new Promise((resolve) => setTimeout(resolve, 750));
