@@ -33,7 +33,7 @@ async function startConnecting(connectionsArray) {
             continue;
         }
         let url = connection[0];
-        window.open(url, 'test'+i);
+        location.href = url;
         //await access(url);
         await sleep(5000);
         await sendProgressPercentage(Math.round((i+1) / total) * 100);
