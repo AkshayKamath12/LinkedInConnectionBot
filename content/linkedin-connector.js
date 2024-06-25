@@ -30,7 +30,9 @@ async function startConnecting(connectionsArray) {
         connection = connectionsArray[i];
         console.log(connection);
         chrome.runtime.sendMessage({action: "redirect", url: connection[0]});
+        openWindow = window.open(connection[0], 'test' + i);
         await sleep(5000);
+        openWindow.close();
         /*
         if(connection.length === 0){
             console.log("error: empty row in csv");
