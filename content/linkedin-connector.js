@@ -31,7 +31,7 @@ async function startConnecting(connectionsArray) {
     total = connectionsArray.length
     console.log(total);
     for(i = 0; i < total; i++){
-        await access(connectionsArray[i]);
+        await access(connectionsArray[i][0]);
         /*
         connection = connectionsArray[i];
         console.log(connection);
