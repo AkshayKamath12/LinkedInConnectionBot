@@ -15,9 +15,10 @@ async function check(url){
 }
 
 async function startConnecting(connectionsArray) {
+    const sleep = (millis) => new Promise((resolve) => setTimeout(resolve, millis));
     total = connectionsArray.length
     console.log(total);
-    for(i = 0; i < connectionsArray.length; i++){
+    for(i = 0; i < total; i++){
         connection = connectionsArray[i];
         console.log(connection);
         if(connection.length === 0){
@@ -29,7 +30,7 @@ async function startConnecting(connectionsArray) {
         var elem = await document.createElement('a');
         elem.href = url;
         elem.setAttribute("type", "hidden");
-        await new Promise((resolve) => setTimeout(resolve, 750));
+        await sleep(5000);
         if(valid === true){
             await elem.click();
         }
