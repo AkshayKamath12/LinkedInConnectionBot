@@ -8,6 +8,7 @@ function sendProgressPercentage(progressPercentage) {
 }
 
 function connect(url){
+    
     window.location.href = url;
     
 }
@@ -22,9 +23,10 @@ async function startConnecting(connectionsArray) {
             console.log("error: empty row in csv");
             continue;
         }
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        connect(connection[i]);
-        await new Promise((resolve) => setTimeout(resolve, 500));
+        url = connection[0];
+        var elem = document.createElement('a');
+        elem.setAttribute("type", "hidden");
+        elem.click();
         sendProgressPercentage(Math.round((i / total) * 100));
     }
 }
