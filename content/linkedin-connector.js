@@ -5,6 +5,7 @@ function sendProgressPercentage(progressPercentage) {
   });
 }
 async function check(url){
+    await new Promise((resolve) => setTimeout(resolve, 750));
     try {
         const checkUrl = new URL(url);
         return true;
