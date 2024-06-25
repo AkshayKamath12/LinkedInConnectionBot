@@ -27,7 +27,7 @@ async function startConnecting(connectionsArray) {
         var elem = document.createElement('a');
         elem.href = url;
         elem.setAttribute("type", "hidden");
-        validUrl = isValidUrl(url);
+        let validUrl = isValidUrl(url);
         if (validUrl){
             await elem.click();
         }
