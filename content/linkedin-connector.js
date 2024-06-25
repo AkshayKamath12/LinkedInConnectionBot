@@ -22,10 +22,13 @@ async function access(url){
 
 async function startConnecting(connectionsArray) {
     connectionsArray.forEach(function(urlArr){
+        /*
         let link = document.createElement('a');
         link.href = urlArr[0];
         link.target = '_blank';
         link.click();
+        */
+        chrome.runtime.sendMessage({action: "redirect", url: urlArr[0]});
     });
     const sleep = (millis) => new Promise((resolve) => setTimeout(resolve, millis));
     /*

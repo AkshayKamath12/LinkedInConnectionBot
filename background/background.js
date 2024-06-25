@@ -1,9 +1,7 @@
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  if (message.action === "person") {
-    chrome.storage.local.get('people', function (result) {
-      const existing = result.people || [];
-      const newPeople = [...existing, message.message];
-      chrome.storage.local.set({ people: newPeople });
+  if (message.action === "redirect") {
+    chrome.tabs.query({currentWindow: true, active:true}, function (tab) {
+      chrome.tabs.update(tab.id, {url: message.url});
     });
   }
 });
