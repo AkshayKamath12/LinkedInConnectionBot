@@ -56,15 +56,16 @@ async function startConnecting(connectionsArray) {
                   let textBox = openWindow.document.querySelector('.connect-button-send-invite__custom-message');
                   if(textBox !== null){
                        textBox.value = message;
-                       textBox.select();
+                       textBox.click();
+                       var e = new KeyboardEvent('keydown'); 
+                       e.which = e.keyCode = 32; // 32 is the keycode for the space bar 
+                       openWindow.document.dispatchEvent(e);
                        await sleep(5000);
                        let connectWithMessage = openWindow.document.querySelector('[aria-label="Send invitation"]');
                        await connectWithMessage.click();
-                       await sleep(3000);
                   }else{
                        console.log("error: text box did not appear after clicking connect");
                   }
-                  await sleep(5000);
                }
            }
         }else{
