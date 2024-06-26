@@ -16,11 +16,17 @@ document.getElementById("csv").addEventListener("change", (event) => {
   reader.readAsText(file);
 });
 
+function parseCSVLine(line) {
+  const pattern = new RegExp(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
+  return line.match(pattern).map(value => {
+    return value.trim();
+  });
+}
+
 function csvToArr(csvData){
     return csvData
     .trim()
     .split("\r\n")
-    .map((item) => item.split(','));
+    .map((item) => parseCSVLine(item));
 }
-
 
