@@ -38,7 +38,7 @@ async function startConnecting(connectionsArray) {
            await btn.click();
            await sleep(5000);
            let connectWithPerson = openWindow.document.querySelector('[aria-label="Send without a note"');
-           if(connectWithPerson !== null{
+           if(connectWithPerson !== null){
               await connectWithPerson.click();
            await connectWithPerson.click()
         }else{
