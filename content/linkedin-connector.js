@@ -31,15 +31,18 @@ async function startConnecting(connectionsArray) {
         console.log(connection);
         openWindow = window.open(connection[0], 'test' + i);
         await sleep(5000);
-        let btn = openWindow.document.querySelector('[aria-label="Invite Rodney Hayes to connect"');
-        if(btn !== null){
+        let buttons = openWindow.document.querySelectorAll('.artdeco-button--primary');
+        if(buttons !== null){
+           btn = buttons[1];
            console.log("found button");
            await btn.click();
            await sleep(5000);
-           //let connectWithPerson = document.querySelector('[aria-label="Send without a note"');
-           //await connectWithPerson.click()
+           let connectWithPerson = openWindow.document.querySelector('[aria-label="Send without a note"');
+           if(connectWithPerson !== null{
+              await connectWithPerson.click();
+           await connectWithPerson.click()
         }else{
-           console.log("error");
+           console.log("error: URL is not a valid LinkedIn profile");
         }
         openWindow.close();
         /*
