@@ -59,7 +59,7 @@ async function startConnecting(connectionsArray) {
                        textBox.click();
                        var e = new KeyboardEvent('keydown'); 
                        e.which = e.keyCode = 32; // 32 is the keycode for the space bar 
-                       openWindow.document.dispatchEvent(e);
+                       textBox.dispatchEvent(e);
                        await sleep(5000);
                        let connectWithMessage = openWindow.document.querySelector('[aria-label="Send invitation"]');
                        await connectWithMessage.click();
