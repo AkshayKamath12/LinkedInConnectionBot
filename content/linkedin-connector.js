@@ -14,21 +14,23 @@ async function check(url){
     }   
 }
 
-async function access(url){
-    
-        
-    console.log(valid);
-}
 
 async function startConnecting(connectionsArray) {
     const sleep = (millis) => new Promise((resolve) => setTimeout(resolve, millis));    
     
     total = connectionsArray.length
     console.log(total);
-    for(i = 0; i < total; i++){
-        
+    for(i = 0; i < total; i++){       
         connection = connectionsArray[i];
         console.log(connection);
+        if(connection.length === 0){
+            continue;
+        }
+        let valid = await check(connection[0]);
+        if(valid === false){
+            console.log("error: invalid url");
+        }
+        
         openWindow = window.open(connection[0], 'test' + i);
         await sleep(5000);
         let buttons = openWindow.document.querySelectorAll('.artdeco-button--primary');
@@ -37,25 +39,31 @@ async function startConnecting(connectionsArray) {
            console.log("found button");
            await btn.click();
            await sleep(5000);
-           let connectWithPerson = openWindow.document.querySelector('[aria-label="Send without a note"');
-           if(connectWithPerson !== null){
-              await connectWithPerson.click();
+           let connectWithPerson = openWindow.document.querySelector('[aria-label="Send without a note"]');
+           if(connection.length === 1 || connection[1].length === 0){
+               await connectWithPerson.click();
+               await sleep(3000);
+           }else{
+               let message = connection[1];
+               let sendNote = openWindow.document.querySelector('[aria-label="Add a note"]');
+               if(sendNote !== null){
+                  await sendNote.click();
+                  let textBox = openWindow.document.querySelector('.connect-button-send-invite__custom-message');
+                  if(textBox !== null){
+                       textBox.innerHTML = message;
+                       let connectWithMessage = openWindow.document.querySelector('[aria-label="Send invitation"]');
+                       await connectWithMessage.click();
+                       await sleep(3000);
+                  }else{
+                       console.log("error: text box did not appear after clicking connect");
+                  }
+                  await sleep(5000);
+               }
            }
         }else{
            console.log("error: URL is not a valid LinkedIn profile");
         }
         openWindow.close();
-        /*
-        if(connection.length === 0){
-            console.log("error: empty row in csv");
-            continue;
-        }
-        let url = connection[0];
-        location.href = url;
-        //await access(url);
-        await sleep(5000);
-        await sendProgressPercentage(Math.round((i+1) / total) * 100);
-        */
         
     }
     
