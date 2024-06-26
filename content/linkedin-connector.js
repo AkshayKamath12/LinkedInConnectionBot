@@ -29,6 +29,8 @@ async function startConnecting(connectionsArray) {
         let valid = await check(connection[0]);
         if(valid === false){
             console.log("error: invalid url");
+            openWindow.close();
+            continue;
         }
         
         openWindow = window.open(connection[0], 'test' + i);
