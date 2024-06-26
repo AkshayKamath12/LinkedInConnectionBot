@@ -65,7 +65,7 @@ async function startConnecting(connectionsArray) {
                        */
                        await sleep(5000);
                        let connectWithMessage = openWindow.document.querySelector('[aria-label="Send invitation"]');
-                       connectWithMessage.disabled = false;
+                       connectWithMessage.removeAttribute("disabled");
                        await connectWithMessage.click();
                   }else{
                        console.log("error: text box did not appear after clicking connect");
