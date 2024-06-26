@@ -40,6 +40,9 @@ async function startConnecting(connectionsArray) {
            await btn.click();
            await sleep(5000);
            let connectWithPerson = openWindow.document.querySelector('[aria-label="Send without a note"]');
+           if(connectWithPerson === null){
+               continue;
+           }
            if(connection.length === 1 || connection[1].length === 0){
                await connectWithPerson.click();
                await sleep(3000);
@@ -51,8 +54,8 @@ async function startConnecting(connectionsArray) {
                   await sleep(5000);
                   let textBox = openWindow.document.querySelector('.connect-button-send-invite__custom-message');
                   if(textBox !== null){
-                       textBox.innerHTML = message;
-                       await sleep(3000);
+                       textBox.value = message;
+                       await sleep(5000);
                        let connectWithMessage = openWindow.document.querySelector('[aria-label="Send invitation"]');
                        await connectWithMessage.click();
                        await sleep(3000);
