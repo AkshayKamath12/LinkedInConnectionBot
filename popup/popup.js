@@ -19,6 +19,9 @@ document.getElementById("csv").addEventListener("change", (event) => {
 function parseCSVLine(line) {
   const pattern = new RegExp(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
   return line.match(pattern).map(value => {
+    if (value.startsWith('"') && value.endsWith('"')) {
+      return value.substr(1, value.length - 2);
+    }
     return value.trim();
   });
 }
