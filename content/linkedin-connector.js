@@ -1,9 +1,3 @@
-function sendProgressPercentage(progressPercentage) {
-  chrome.runtime.sendMessage({
-    action: "progressPercentage",
-    message: progressPercentage,
-  });
-}
 async function check(url){
     await new Promise((resolve) => setTimeout(resolve, 750));
     try {
@@ -57,13 +51,6 @@ async function startConnecting(connectionsArray) {
                   let textBox = openWindow.document.querySelector('.connect-button-send-invite__custom-message');
                   if(textBox !== null){
                        textBox.value = message;
-                       /*
-                       textBox.focus();
-                       
-                       var e = new KeyboardEvent('keydown'); 
-                       e.which = e.keyCode = 32; // 32 is the keycode for the space bar 
-                       textBox.dispatchEvent(e);
-                       */
                        await sleep(5000);
                        let connectWithMessage = openWindow.document.querySelector('[aria-label="Send invitation"]');
                        connectWithMessage.removeAttribute("disabled");
