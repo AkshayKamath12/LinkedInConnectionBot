@@ -5,7 +5,6 @@
   "description": "Connects to people in csv file",
   "permissions": ["tabs", "storage"],
   "background": {
-    "service_worker": "background/background.js",
     "type": "module"
   },
   "content_scripts": [
