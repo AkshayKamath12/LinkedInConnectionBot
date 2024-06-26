@@ -56,7 +56,7 @@ async function startConnecting(connectionsArray) {
                   let textBox = openWindow.document.querySelector('.connect-button-send-invite__custom-message');
                   if(textBox !== null){
                        textBox.value = message;
-                       textBox.click();
+                       textBox.select();
                        await sleep(5000);
                        let connectWithMessage = openWindow.document.querySelector('[aria-label="Send invitation"]');
                        await connectWithMessage.click();
